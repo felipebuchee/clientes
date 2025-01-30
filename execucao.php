@@ -72,7 +72,6 @@ do {
 
             // 3. Verificar se o cliente retornado é diferente de NULL
             if ($cliente !== null) {
-                // Exibir os dados do cliente
                 print "Cliente encontrado:\n";
                 printf(
                     "%d- %s | %s|  %s | %s\n",
@@ -83,14 +82,28 @@ do {
                     $cliente->getEmail()
                 );
             } else {
-                // Mostrar mensagem de erro
                 print "Cliente não encontrado!\n";
             }
             break;
 
 
         case 5:
-            # code...
+            // 1 - Listar os clientes
+            $clienteDAO = new ClienteDAO();
+            $clientes = $clienteDAO->listarClientes();
+
+            //Exibir os dados dos objetos
+            foreach ($clientes as $c) {
+                printf("%d- %s | %s | %s | %s\n", $c->getId(), $c->getTipo(), $c->getNomeSocial(), $c->getIdentificacao(), $c->getNroDoc(), $c->getEmail());
+            }
+
+            // 2 - Solicitar ao usúario para informar o id
+            $id = readline("Informe o ID do cliente que deseja excluir: ");
+
+            // 3 - Chamar o método do DAO para excluir o cliente
+            $clienteDAO->excluirCliente($id);
+
+            print "Cliente excluído com sucesso!\n";
             break;
         case 0:
             print "Programa encerrado!\n";

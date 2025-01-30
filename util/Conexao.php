@@ -21,7 +21,7 @@ class Conexao
 
             $dadosCon = "mysql:host=localhost:3306;dbname=clientes";
 
-            self::$con = new PDO($dadosCon, "root", "bancodedados", $opcoes);
+            self::$con = new PDO($dadosCon, "root", "", $opcoes);
         }
 
         return self::$con;

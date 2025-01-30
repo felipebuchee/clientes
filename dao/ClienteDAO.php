@@ -112,4 +112,12 @@ class ClienteDAO
         // Retorna null caso o cliente não seja encontrado
         return null;
     }
+
+    public function excluirCliente($id){
+        $sql = "DELETE FROM clientes WHERE id =?";
+
+        $con = Conexao::getCon();
+        $stm = $con->prepare($sql);
+        $stm->execute([$id]);
+    }
 }
