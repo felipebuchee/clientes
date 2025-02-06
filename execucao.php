@@ -71,6 +71,7 @@ do {
                     method_exists($r, 'getTipoPlaca') ? $r->getTipoPlaca() : 'N/A'
                 );
             }
+            break;
 
 
         case 4:

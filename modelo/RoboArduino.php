@@ -7,6 +7,10 @@ class RoboArduino extends Robo
     //Atributos
     private string $tipoPlaca;
 
+    public function getTipo(){
+        return "Arduino";
+    }
+
     /**
      * Get the value of tipoPlaca
      */

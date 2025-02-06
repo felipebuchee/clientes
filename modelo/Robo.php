@@ -9,8 +9,9 @@ abstract class Robo
     protected int $quantRodas;
     protected string $modalidade;
     protected string $premiacoes;
-    protected string $tipo;
 
+    abstract public function getTipo();
+ 
     /**
      * Get the value of id
      */
@@ -104,18 +105,5 @@ abstract class Robo
     /**
      * Get the value of tipo
      */
-    public function getTipo(): string
-    {
-        return $this->tipo;
-    }
 
-    /**
-     * Set the value of tipo
-     */
-    public function setTipo(string $tipo): self
-    {
-        $this->tipo = $tipo;
-
-        return $this;
-    }
 }

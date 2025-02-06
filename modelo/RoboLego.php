@@ -8,6 +8,9 @@ class RoboLego extends Robo
     //Atributos
     private string $tipoSistema;
 
+    public function getTipo(){
+        return "Lego";
+    }
 
     /**
      * Get the value of tipoSistema

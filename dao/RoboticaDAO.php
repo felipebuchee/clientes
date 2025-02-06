@@ -27,7 +27,7 @@ class RoboticaDAO
                 $robo->getModalidade(),
                 $robo->getPremiacoes(),
                 null,
-                "lego"
+                $robo->getTipo()
 
             ));
         } else if ($robo instanceof RoboArduino) {
@@ -38,7 +38,7 @@ class RoboticaDAO
                 $robo->getModalidade(),
                 $robo->getPremiacoes(),
                 $robo->getTipoPlaca(),
-                "arduino"
+                $robo->getTipo()
             ));
         }
     }
