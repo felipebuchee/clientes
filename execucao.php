@@ -62,13 +62,14 @@ do {
             foreach ($robos as $r) {
                 // Acessa os atributos comuns
                 printf(
-                    "%d- %s | %s | %s | %s\n",
+                    "%d - %s | %s | %s | %s | %s\n",
                     $r->getId(),
                     $r->getNomeRobo(),
                     method_exists($r, 'getTipoSistema') ? $r->getTipoSistema() : 'N/A',
                     $r->getQuantRodas(),
                     $r->getModalidade(),
-                    method_exists($r, 'getTipoPlaca') ? $r->getTipoPlaca() : 'N/A'
+                    method_exists($r, 'getTipoPlaca') ? $r->getTipoPlaca() : 'N/A',
+                    $robo->getTipo()
                 );
             }
             break;
@@ -86,13 +87,14 @@ do {
             if ($robo !== null) {
                 print "Robô encontrado:\n";
                 printf(
-                    "%d- %s | %s | %s | %s | %s\n",
+                    "%d - %s | %s | %s | %s | %s | %s\n",
                     $robo->getId(),
                     $robo->getNomeRobo(),
                     method_exists($robo, 'getTipoSistema') ? $robo->getTipoSistema() : 'N/A',
                     $robo->getQuantRodas(),
                     $robo->getModalidade(),
-                    method_exists($robo, 'getTipoPlaca') ? $robo->getTipoPlaca() : 'N/A'
+                    method_exists($robo, 'getTipoPlaca') ? $robo->getTipoPlaca() : 'N/A',
+                    $robo->getTipo()
                 );
             } else {
                 print "Robô não encontrado!\n";

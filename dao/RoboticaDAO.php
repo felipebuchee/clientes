@@ -14,7 +14,7 @@ class RoboticaDAO
 
         $sql = "INSERT INTO robo (nome, tipo_sistema, quant_rodas, modalidade, premiacoes, tipo_placa, tipo)
         VALUES
-        (?, ?, ?, ?, ?, ?. ?)";
+        (?, ?, ?, ?, ?, ?, ?)";
 
         $con = Conexao::getCon();
 
@@ -65,20 +65,19 @@ class RoboticaDAO
         foreach ($registros as $reg) {
             $robo = null;
 
-            // Verifica o tipo do robô (ajuste conforme o nome da coluna no banco)
-            if ($reg['tipo'] === 'arduino') {
+            if ($reg['tipo'] === 'Arduino') {
                 $robo = new RoboArduino();
                 $robo->setTipoPlaca($reg['tipo_placa']);
-            } elseif ($reg['tipo'] === 'lego') {
+            } elseif ($reg['tipo'] === 'Lego') {
                 $robo = new RoboLego();
                 $robo->setTipoSistema($reg['tipo_sistema']);
             } else {
-                continue; // Ignora se não for um tipo conhecido
+                continue;
             }
 
             // Atributos comuns a todos os robôs
             $robo->setId($reg['id']);
-            $robo->setNomeRobo($reg['nome_robo']);
+            $robo->setNomeRobo($reg['nome']);
             $robo->setQuantRodas($reg['quant_rodas']);
             $robo->setModalidade($reg['modalidade']);
             $robo->setPremiacoes($reg['premiacoes']);
@@ -103,10 +102,10 @@ class RoboticaDAO
     if ($registro) {
 
         // Mapear o registro para o tipo correto de robô
-        if ($registro['tipo'] == 'arduino') {
+        if ($registro['tipo'] == 'Arduino') {
             $robo = new RoboArduino();
             $robo->setTipoPlaca($registro['tipo_placa']);
-        } elseif ($registro['tipo'] == 'lego') {
+        } elseif ($registro['tipo'] == 'Lego') {
             $robo = new RoboLego();
             $robo->setTipoSistema($registro['tipo_sistema']);
         } else {
@@ -116,7 +115,7 @@ class RoboticaDAO
 
         // Atributos comuns a todos os robôs
         $robo->setId($registro['id']);
-        $robo->setNomeRobo($registro['nome_robo']);
+        $robo->setNomeRobo($registro['nome']);
         $robo->setQuantRodas($registro['quant_rodas']);
         $robo->setModalidade($registro['modalidade']);
         $robo->setPremiacoes($registro['premiacoes']);
