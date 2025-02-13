@@ -19,7 +19,7 @@ class Conexao
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             );
 
-            $dadosCon = "mysql:host=localhost:3306;dbname=robotica";
+            $dadosCon = "mysql:host=localhost:3306;dbname=jogadores";
 
             self::$con = new PDO($dadosCon, "root", "", $opcoes);
         }
